@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+ int Kiemtra(double x, double y){
+ 	double 	s= 1e-10; // dieu kien dung de quy (s la sai so) 
+ 	 if (abs(y-(1.0/3.0)*log(x)) < s ) {  //neu y gan bang voi (1.0 / 3.0) * log(x) thi tra ve s(y)
+ 	return s( y );
+ } else {
+   return Kiemtra(x, (1.0 / 3.0) * log(x) + 2.0 / 3.0 * y); // neu y khong dung nguong sai so tinh lai y bang cong thuc tren 
+ }
+}  double GiaTri(double x){ 
+	double y=x; //khoi tao gia tri cho x
+	return Kiemtra(x,y);
+}
+int main(){
+	double x=27
+	double KetQua = = GiaTri(x);
+	cout << "can bac 3 cua so x la" << KetQua <<endl;
+	return 0;
+}

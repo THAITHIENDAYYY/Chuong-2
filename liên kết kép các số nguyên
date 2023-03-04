@@ -1,0 +1,5 @@
+struct Node { // node là tên thu muc 
+	int data; // chua gia tri phan tu trong danh sach
+	Node* prev; // tro toi phan tu truoc do
+	Node* next; // tro toi phan tu sau do
+	};

@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+struct Fraction {
+    int numerator;   // tử số
+    int denominator; // mẫu số
+};
+
+struct Node {
+    Fraction key;    // giá trị của nút
+    Node* left;      // con trỏ trái
+    Node* right;     // con trỏ phải
+};
+
+// Hàm đệ quy nhị phân đếm số lượng nút lá
+int countLeaves(Node* root) {
+    if (root == NULL) { // Nếu cây rỗng
+        return 0;       // Trả về 0
+    } else if (root->left == NULL && root->right == NULL) { // Nếu nút đó không có con trái và con phải
+        return 1;       // Trả về 1
+    } else {            // Nếu nút đó có ít nhất một con
+        return countLeaves(root->left) + countLeaves(root->right); // Đệ quy tính số lượng nút lá của các cây con bên trái và bên phải, sau đó cộng lại
+    }
+}
+
+int main() {
+    // Khởi tạo một cây nhị phân tìm kiếm các phân số
+    Node* root = new Node;
+    root->key.numerator = 1;
+    root->key.denominator = 2;
+    root->left = new Node;
+    root->left->key.numerator = 1;
+    root->left->key.denominator = 3;
+    root->left->left = NULL;
+    root->left->right = NULL;
+    root->right = new Node;
+    root->right->key.numerator = 2;
+    root->right->key.denominator = 3;
+    root->right->left = NULL;
+    root->right->right = new Node;
+    root->right->right->key.numerator = 3;
+    root->right->right->key.denominator = 4;
+    root->right->right->left = NULL;
+    root->right->right->right = NULL;
+
+    // Đếm số lượng nút lá của cây
+    int count = countLeaves(root);
+
+    // Hiển thị kết quả
+    cout << "The number of leaves in the tree is: " << count << endl;
+
+    return 0;
+}

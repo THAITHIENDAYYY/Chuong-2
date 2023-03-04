@@ -1,7 +1,0 @@
-struct cayNhiPhan {
-	int val; // gia tri nut 
-	prt* left;// con tro den nut trai 
-	ptr* right; // con tro den nut phai 
-	
-	  treenode(int x), val (x); left(nullptr); right(nullptr);
-	  }

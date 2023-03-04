@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double sum(double x, int n);
+int giaithua(int n);
+
+int main() {
+    double x;
+    int n;
+
+    cout << "Enter x: ";
+    cin >> x;
+
+    cout << "Enter n: ";
+    cin >> n;
+
+    double ketqua = sum(x, n);
+
+    cout << "ket qua la: " << ketqua << endl;
+
+    return 0;
+}
+
+double sum(double x, int n) {
+    if (n == 0) {
+        return 0;
+    } else {
+        return sum(x, n - 1) + pow(x, n) / giaithua(n);
+    }
+}
+
+int giaithua(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * giaithua(n - 1);
+    }
+}
